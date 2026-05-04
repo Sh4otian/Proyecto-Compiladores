@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4E2D4995-60BF-4DF2-9EAA-C1B6F3CBEEC4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ConsoleApp1</RootNamespace>
+    <AssemblyName>ConsoleApp1</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clases\AFD.cs" />
+    <Compile Include="Clases\AFN.cs" />
+    <Compile Include="Clases\AnalizadorLexico.cs" />
+    <Compile Include="Clases\CompAFN.cs" />
+    <Compile Include="Clases\ER.cs" />
+    <Compile Include="FormAfnAAfd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAfnAAfd.Designer.cs">
+      <DependentUpon>FormAfnAAfd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAFNBasico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAFNBasico.Designer.cs">
+      <DependentUpon>FormAFNBasico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAnalizadorLexico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAnalizadorLexico.Designer.cs">
+      <DependentUpon>FormAnalizadorLexico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAnalizarCadena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAnalizarCadena.Designer.cs">
+      <DependentUpon>FormAnalizarCadena.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormConcatenar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConcatenar.Designer.cs">
+      <DependentUpon>FormConcatenar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormExpresionRegular.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormExpresionRegular.Designer.cs">
+      <DependentUpon>FormExpresionRegular.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMenu.Designer.cs">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOperacionesUnarias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOperacionesUnarias.Designer.cs">
+      <DependentUpon>FormOperacionesUnarias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUnionLexico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUnionLexico.Designer.cs">
+      <DependentUpon>FormUnionLexico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUnirAFN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUnirAFN.Designer.cs">
+      <DependentUpon>FormUnirAFN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUnircs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUnircs.Designer.cs">
+      <DependentUpon>FormUnircs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormAfnAAfd.resx">
+      <DependentUpon>FormAfnAAfd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAFNBasico.resx">
+      <DependentUpon>FormAFNBasico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAnalizadorLexico.resx">
+      <DependentUpon>FormAnalizadorLexico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAnalizarCadena.resx">
+      <DependentUpon>FormAnalizarCadena.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConcatenar.resx">
+      <DependentUpon>FormConcatenar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormExpresionRegular.resx">
+      <DependentUpon>FormExpresionRegular.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMenu.resx">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOperacionesUnarias.resx">
+      <DependentUpon>FormOperacionesUnarias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUnionLexico.resx">
+      <DependentUpon>FormUnionLexico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUnirAFN.resx">
+      <DependentUpon>FormUnirAFN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUnircs.resx">
+      <DependentUpon>FormUnircs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
