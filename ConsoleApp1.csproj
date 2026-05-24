@@ -95,6 +95,13 @@
     <Compile Include="FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormFirstFollowLl1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFirstFollowLl1.Designer.cs">
+      <DependentUpon>FormFirstFollowLl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\Grammar.cs" />
     <Compile Include="FormOperacionesUnarias.cs">
       <SubType>Form</SubType>
     </Compile>

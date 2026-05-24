@@ -93,5 +93,17 @@ namespace ConsoleApp1
             FormAnalizadorLexico f = new FormAnalizadorLexico(afdActual);
             f.ShowDialog();
         }
+
+        private void btnFirstFollow_Click(object sender, EventArgs e)
+        {
+            FormFirstFollowLl1 f = new FormFirstFollowLl1(0);
+            f.ShowDialog();
+        }
+
+        private void btnTablaLL1_Click(object sender, EventArgs e)
+        {
+            FormFirstFollowLl1 f = new FormFirstFollowLl1(1);
+            f.ShowDialog();
+        }
     }
 }

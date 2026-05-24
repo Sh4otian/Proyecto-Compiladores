@@ -28,6 +28,8 @@ namespace ConsoleApp1
             this.btnAFNaAFD = new System.Windows.Forms.Button();
             this.btnAnalizarCadena = new System.Windows.Forms.Button();
             this.btnAnalizadorLexico = new System.Windows.Forms.Button();
+            this.btnFirstFollow = new System.Windows.Forms.Button();
+            this.btnTablaLL1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnBasico
@@ -140,9 +142,31 @@ namespace ConsoleApp1
             this.btnAnalizadorLexico.UseVisualStyleBackColor = true;
             this.btnAnalizadorLexico.Click += new System.EventHandler(this.btnAnalizadorLexico_Click);//al hacer click se abre el formulario para analizar una cadena con un analizador léxico creado a partir de AFNs con etiquetas léxicas
             // 
+            // btnFirstFollow
+            // 
+            this.btnFirstFollow.Location = new System.Drawing.Point(12, 463);
+            this.btnFirstFollow.Name = "btnFirstFollow";
+            this.btnFirstFollow.Size = new System.Drawing.Size(386, 35);
+            this.btnFirstFollow.TabIndex = 11;
+            this.btnFirstFollow.Text = "First-Follow";
+            this.btnFirstFollow.UseVisualStyleBackColor = true;
+            this.btnFirstFollow.Click += new System.EventHandler(this.btnFirstFollow_Click);
+            // 
+            // btnTablaLL1
+            // 
+            this.btnTablaLL1.Location = new System.Drawing.Point(12, 504);
+            this.btnTablaLL1.Name = "btnTablaLL1";
+            this.btnTablaLL1.Size = new System.Drawing.Size(386, 35);
+            this.btnTablaLL1.TabIndex = 12;
+            this.btnTablaLL1.Text = "Tabla LL(1)";
+            this.btnTablaLL1.UseVisualStyleBackColor = true;
+            this.btnTablaLL1.Click += new System.EventHandler(this.btnTablaLL1_Click);
+            // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(418, 477);
+            this.ClientSize = new System.Drawing.Size(418, 552);
+            this.Controls.Add(this.btnTablaLL1);
+            this.Controls.Add(this.btnFirstFollow);
             this.Controls.Add(this.btnAnalizadorLexico);
             this.Controls.Add(this.btnAnalizarCadena);
             this.Controls.Add(this.btnAFNaAFD);
@@ -172,5 +196,7 @@ namespace ConsoleApp1
         private System.Windows.Forms.Button btnAFNaAFD;
         private System.Windows.Forms.Button btnAnalizarCadena;
         private System.Windows.Forms.Button btnAnalizadorLexico;
+        private System.Windows.Forms.Button btnFirstFollow;
+        private System.Windows.Forms.Button btnTablaLL1;
     }
 }
