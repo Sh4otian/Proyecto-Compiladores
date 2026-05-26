@@ -6,6 +6,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static ConsoleApp1.Clases.CompAFN;
+using ConsoleApp1.Clases; // para usar AFD
 
 namespace ConsoleApp1
 {
@@ -15,7 +16,7 @@ namespace ConsoleApp1
         {
             const char EPSILON = '\0';
             public int IdAFN = 0;
-            static int cont = 0;
+            //static int cont = 0;
             Estado EdoInicial = new Estado();
             HashSet<char> Alfabeto = new HashSet<char>();
             HashSet<Estado> EstadosAFN = new HashSet<Estado>();
@@ -253,7 +254,102 @@ namespace ConsoleApp1
                     e.token = token;
                 }
             }
+            public AFD ConvAFNaAFD()
+            {
+                int CardAlfabeto;// NumEdosAFD;
+                int i, j, r;
+                char[] ArrAlfabeto;
+                AFD.ConjIj Ij, Ik;
+                bool existe;
 
+                HashSet<Estado> ConjAux = new HashSet<Estado>();
+                HashSet<AFD.ConjIj> EdosAFD = new HashSet<AFD.ConjIj>();
+                Queue<AFD.ConjIj> EdosSinAnalizar = new Queue<AFD.ConjIj>();
+
+                EdosAFD.Clear();
+                EdosSinAnalizar.Clear();
+
+                CardAlfabeto = Alfabeto.Count;
+                ArrAlfabeto = new char[CardAlfabeto];
+                i = 0;
+                foreach (char c in Alfabeto)
+                    ArrAlfabeto[i++] = c;
+
+                j = 0; // Contador para los estados del AFD
+                Ij = new AFD.ConjIj(CardAlfabeto)
+                {
+                    ConjI = AFD.CerraduraEpsilon(EdoInicial),
+                    j = j
+                };
+
+                EdosAFD.Add(Ij);
+                EdosSinAnalizar.Enqueue(Ij);
+                j++;
+
+                while (EdosSinAnalizar.Count != 0) // Mientras se tengan estados Ij sin analizar
+                {
+                    Ij = EdosSinAnalizar.Dequeue();
+
+                    // Calcular el IrA del Ij con cada símbolo del alfabeto
+                    foreach (char c in ArrAlfabeto)
+                    {
+                        Ik = new AFD.ConjIj(CardAlfabeto)
+                        {
+                            ConjI = AFD.Ir_A(Ij.ConjI, c)
+                        };
+
+                        if (Ik.ConjI.Count == 0) // Si el conjunto fue vacío (No hubo transiciones)
+                            continue;
+
+                        // Revisar si el conjunto de estados ya existe
+                        existe = false;
+                        foreach (AFD.ConjIj I in EdosAFD)
+                        {
+                            if (I.ConjI.SetEquals(Ik.ConjI))
+                            {
+                                existe = true;
+                                // El conjunto ya existe → la transición del Estado Ij.j con c va a I.j
+                                r = AFD.IndiceCaracter(ArrAlfabeto, c);
+                                Ij.TransicionesAFD[r] = I.j;
+                                break;
+                            }
+                        }
+
+                        if (!existe) // Si el conjunto Ik no existía, será un nuevo estado
+                        {
+                            Ik.j = j; // Le ponemos su índice (numeración) al nuevo estado
+                            r = AFD.IndiceCaracter(ArrAlfabeto, c);
+                            Ij.TransicionesAFD[r] = Ik.j;
+                            EdosAFD.Add(Ik);           // Se agrega el nuevo estado a la colección
+                            EdosSinAnalizar.Enqueue(Ik); // Al ser nuevo estado, falta por analizar
+                            j++;
+                        }
+                    }
+                }
+
+                // Determinar cuáles estados del AFD son de aceptación
+                foreach (AFD.ConjIj I in EdosAFD)
+                {
+                    foreach (Estado e in I.ConjI)
+                    {
+                        if (e.edoacept)
+                        {
+                            I.EsAceptacion = true;
+                            if (e.token != -1)
+                                I.Token = e.token; // conservar el token del AFN
+                            break;
+                        }
+                    }
+                }
+
+                // Construir y retornar el objeto AFD
+                AFD afd = new AFD();
+                afd.EdosAFD = EdosAFD;
+                afd.EstadoInicial = 0;
+                afd.Alfabeto = new HashSet<char>(Alfabeto);
+
+                return afd;
+            }
             public static AFNo UnirAFNs(List<(AFNo afn, int token)> lista)
             {
                 AFNo nuevo = new AFNo();
@@ -282,7 +378,6 @@ namespace ConsoleApp1
 
                 return nuevo;
             }
-
         }
     }
 }

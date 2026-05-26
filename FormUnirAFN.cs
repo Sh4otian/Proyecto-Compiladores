@@ -55,20 +55,22 @@ namespace ConsoleApp1
         // Botón para guardar cambios y usar AFNs
         private void btnProcesar_Click(object sender, EventArgs e)
         {
-            Btn1.Text = "Unir AFNs con Tokens";
             var lista = new List<(AFNo, int)>();
-            // Guardar cambios en los objetos
+
             for (int i = 0; i < DatGV1.Rows.Count; i++)
             {
                 int nuevoToken = Convert.ToInt32(DatGV1.Rows[i].Cells[1].Value);
                 lista.Add((afnsRecibidos[i], nuevoToken));
             }
 
-            var nuevo = AFNo.UnirAFNs(lista); 
-            AFNGenerado?.Invoke(nuevo);
+            var nuevo = AFNo.UnirAFNs(lista);
+
+            afnsRecibidos.Clear();
+            afnsRecibidos.Add(nuevo);
+
+            MessageBox.Show("AFNs unidos correctamente. Total AFNs: " + afnsRecibidos.Count);
 
             this.Close();
-
         }
     }
 }

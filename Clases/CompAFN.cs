@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.Clases
 {
-    internal class CompAFN
+    public class CompAFN //Accesible para la clase AFD
     {
         public class Estado
         {
