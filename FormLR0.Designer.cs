@@ -1,6 +1,6 @@
 namespace ConsoleApp1
 {
-    partial class FormLR0
+    partial class FormFirstFollowLl1
     {
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.Button btnCargarArchivo;
@@ -67,7 +67,7 @@ namespace ConsoleApp1
             // 
             // txtArchivo
             // 
-            this.txtArchivo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtArchivo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtArchivo.Location = new System.Drawing.Point(156, 17);
             this.txtArchivo.Name = "txtArchivo";
@@ -78,7 +78,7 @@ namespace ConsoleApp1
             // 
             // txtGrammar
             // 
-            this.txtGrammar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtGrammar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtGrammar.Location = new System.Drawing.Point(12, 70);
             this.txtGrammar.Multiline = true;
@@ -101,8 +101,8 @@ namespace ConsoleApp1
             // 
             // tabControlResults
             // 
-            this.tabControlResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.tabControlResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlResults.Controls.Add(this.tabPageFirstFollow);
             this.tabControlResults.Controls.Add(this.tabPageLL1);
@@ -123,7 +123,7 @@ namespace ConsoleApp1
             this.tabPageFirstFollow.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageFirstFollow.Size = new System.Drawing.Size(758, 274);
             this.tabPageFirstFollow.TabIndex = 0;
-            this.tabPageFirstFollow.Text = "First-Follow";
+            this.tabPageFirstFollow.Text = "Closure-Goto";
             this.tabPageFirstFollow.UseVisualStyleBackColor = true;
             // 
             // labelFollow
@@ -146,7 +146,7 @@ namespace ConsoleApp1
             // 
             // txtFollow
             // 
-            this.txtFollow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.txtFollow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFollow.Location = new System.Drawing.Point(385, 28);
             this.txtFollow.Multiline = true;
@@ -158,7 +158,7 @@ namespace ConsoleApp1
             // 
             // txtFirst
             // 
-            this.txtFirst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.txtFirst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.txtFirst.Location = new System.Drawing.Point(12, 28);
             this.txtFirst.Multiline = true;
@@ -178,7 +178,7 @@ namespace ConsoleApp1
             this.tabPageLL1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageLL1.Size = new System.Drawing.Size(758, 274);
             this.tabPageLL1.TabIndex = 1;
-            this.tabPageLL1.Text = "Tabla LL(1)";
+            this.tabPageLL1.Text = "Tabla LR(0)";
             this.tabPageLL1.UseVisualStyleBackColor = true;
             // 
             // labelNotas
@@ -192,7 +192,7 @@ namespace ConsoleApp1
             // 
             // txtTableNotes
             // 
-            this.txtTableNotes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.txtTableNotes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTableNotes.Location = new System.Drawing.Point(12, 189);
             this.txtTableNotes.Multiline = true;
@@ -204,8 +204,8 @@ namespace ConsoleApp1
             // 
             // dataGridViewLL1
             // 
-            this.dataGridViewLL1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dataGridViewLL1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewLL1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewLL1.Location = new System.Drawing.Point(12, 12);
@@ -234,7 +234,7 @@ namespace ConsoleApp1
             // 
             // lblStatus
             // 
-            this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblStatus.Location = new System.Drawing.Point(12, 259);
             this.lblStatus.Name = "lblStatus";

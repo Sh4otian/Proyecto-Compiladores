@@ -48,11 +48,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases\AFD.cs" />
-    <Compile Include="Clases\AFN.cs" />
+    <Compile Include="Clases\Evidencia 1\AFD.cs" />
+    <Compile Include="Clases\Evidencia 1\AFN.cs" />
     <Compile Include="Clases\AnalizadorLexico.cs" />
-    <Compile Include="Clases\CompAFN.cs" />
-    <Compile Include="Clases\ER.cs" />
+    <Compile Include="Clases\Evidencia 1\CompAFN.cs" />
+    <Compile Include="Clases\ConversionGram.cs" />
+    <Compile Include="Clases\Evidencia 1\ER.cs" />
+    <Compile Include="Clases\FirstFollow.cs" />
+    <Compile Include="Clases\Produccion.cs" />
+    <Compile Include="Clases\Tablasll1.cs" />
     <Compile Include="FormAfnAAfd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +92,12 @@
     </Compile>
     <Compile Include="FormExpresionRegular.Designer.cs">
       <DependentUpon>FormExpresionRegular.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLR0.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLR0.Designer.cs">
+      <DependentUpon>FormLR0.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMenu.cs">
       <SubType>Form</SubType>
@@ -155,6 +165,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormExpresionRegular.resx">
       <DependentUpon>FormExpresionRegular.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLR0.resx">
+      <DependentUpon>FormLR0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFirstFollowLl1.resx">
+      <DependentUpon>FormFirstFollowLl1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
