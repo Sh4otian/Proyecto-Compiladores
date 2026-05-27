@@ -95,6 +95,9 @@ namespace ConsoleApp1.Clases
 
                     var production =
                         new Production(left, symbols);
+                    production.Id =
+    grammar.Productions.Count;
+
 
                     grammar.Productions.Add(production);
                 }
@@ -194,6 +197,32 @@ namespace ConsoleApp1.Clases
 
             return tokens;
         }
-    }
+        public void Validar(
+    Grammar grammar)
+        {
+            if (grammar.Productions.Count == 0)
+                throw new Exception(
+                    "La gramática no tiene producciones.");
 
+            var first =
+                grammar.Productions[0];
+
+            // Debe tener exactamente un símbolo
+            if (first.Right.Count != 1)
+            {
+                throw new Exception(
+                    "La primera producción debe ser aumentada.");
+            }
+
+            // S' -> S
+            string start =
+                first.Right[0];
+
+            if (!grammar.NonTerminals.Contains(start))
+            {
+                throw new Exception(
+                    "Producción aumentada inválida.");
+            }
+        }
+    }
 }

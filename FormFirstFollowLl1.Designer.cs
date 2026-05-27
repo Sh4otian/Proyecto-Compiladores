@@ -1,6 +1,6 @@
 namespace ConsoleApp1
 {
-    partial class FormLR0
+    partial class FormFirstFollowLl1
     {
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.Button btnCargarArchivo;
@@ -67,18 +67,17 @@ namespace ConsoleApp1
             // 
             // txtArchivo
             // 
-            this.txtArchivo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtArchivo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtArchivo.Location = new System.Drawing.Point(156, 17);
             this.txtArchivo.Name = "txtArchivo";
             this.txtArchivo.ReadOnly = true;
             this.txtArchivo.Size = new System.Drawing.Size(622, 20);
             this.txtArchivo.TabIndex = 1;
-            this.txtArchivo.TextChanged += new System.EventHandler(this.txtArchivo_TextChanged);
             // 
             // txtGrammar
             // 
-            this.txtGrammar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtGrammar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtGrammar.Location = new System.Drawing.Point(12, 70);
             this.txtGrammar.Multiline = true;
@@ -101,8 +100,8 @@ namespace ConsoleApp1
             // 
             // tabControlResults
             // 
-            this.tabControlResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.tabControlResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlResults.Controls.Add(this.tabPageFirstFollow);
             this.tabControlResults.Controls.Add(this.tabPageLL1);
@@ -131,7 +130,7 @@ namespace ConsoleApp1
             this.labelFollow.AutoSize = true;
             this.labelFollow.Location = new System.Drawing.Point(382, 12);
             this.labelFollow.Name = "labelFollow";
-            this.labelFollow.Size = new System.Drawing.Size(87, 13);
+            this.labelFollow.Size = new System.Drawing.Size(66, 13);
             this.labelFollow.TabIndex = 3;
             this.labelFollow.Text = "Conjuntos Follow";
             // 
@@ -140,13 +139,13 @@ namespace ConsoleApp1
             this.labelFirst.AutoSize = true;
             this.labelFirst.Location = new System.Drawing.Point(9, 12);
             this.labelFirst.Name = "labelFirst";
-            this.labelFirst.Size = new System.Drawing.Size(76, 13);
+            this.labelFirst.Size = new System.Drawing.Size(59, 13);
             this.labelFirst.TabIndex = 2;
             this.labelFirst.Text = "Conjuntos First";
             // 
             // txtFollow
             // 
-            this.txtFollow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.txtFollow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFollow.Location = new System.Drawing.Point(385, 28);
             this.txtFollow.Multiline = true;
@@ -158,7 +157,7 @@ namespace ConsoleApp1
             // 
             // txtFirst
             // 
-            this.txtFirst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.txtFirst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.txtFirst.Location = new System.Drawing.Point(12, 28);
             this.txtFirst.Multiline = true;
@@ -186,13 +185,13 @@ namespace ConsoleApp1
             this.labelNotas.AutoSize = true;
             this.labelNotas.Location = new System.Drawing.Point(9, 173);
             this.labelNotas.Name = "labelNotas";
-            this.labelNotas.Size = new System.Drawing.Size(118, 13);
+            this.labelNotas.Size = new System.Drawing.Size(100, 13);
             this.labelNotas.TabIndex = 2;
             this.labelNotas.Text = "Notas / conflictos LL(1)";
             // 
             // txtTableNotes
             // 
-            this.txtTableNotes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.txtTableNotes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTableNotes.Location = new System.Drawing.Point(12, 189);
             this.txtTableNotes.Multiline = true;
@@ -204,9 +203,9 @@ namespace ConsoleApp1
             // 
             // dataGridViewLL1
             // 
-            this.dataGridViewLL1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewLL1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right));
             this.dataGridViewLL1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewLL1.Location = new System.Drawing.Point(12, 12);
             this.dataGridViewLL1.Name = "dataGridViewLL1";
@@ -219,7 +218,7 @@ namespace ConsoleApp1
             this.labelArchivo.AutoSize = true;
             this.labelArchivo.Location = new System.Drawing.Point(12, 51);
             this.labelArchivo.Name = "labelArchivo";
-            this.labelArchivo.Size = new System.Drawing.Size(130, 13);
+            this.labelArchivo.Size = new System.Drawing.Size(112, 13);
             this.labelArchivo.TabIndex = 6;
             this.labelArchivo.Text = "Contenido de la gramática";
             // 
@@ -228,13 +227,13 @@ namespace ConsoleApp1
             this.labelGrammar.AutoSize = true;
             this.labelGrammar.Location = new System.Drawing.Point(153, 1);
             this.labelGrammar.Name = "labelGrammar";
-            this.labelGrammar.Size = new System.Drawing.Size(60, 13);
+            this.labelGrammar.Size = new System.Drawing.Size(62, 13);
             this.labelGrammar.TabIndex = 7;
             this.labelGrammar.Text = "Archivo .txt";
             // 
             // lblStatus
             // 
-            this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblStatus.Location = new System.Drawing.Point(12, 259);
             this.lblStatus.Name = "lblStatus";

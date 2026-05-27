@@ -30,6 +30,7 @@ namespace ConsoleApp1
             this.btnAnalizadorLexico = new System.Windows.Forms.Button();
             this.btnFirstFollow = new System.Windows.Forms.Button();
             this.btnTablaLL1 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnBasico
@@ -162,9 +163,20 @@ namespace ConsoleApp1
             this.btnTablaLL1.UseVisualStyleBackColor = true;
             this.btnTablaLL1.Click += new System.EventHandler(this.btnTablaLL1_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 545);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(386, 35);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Tabla LR(0)";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(418, 552);
+            this.ClientSize = new System.Drawing.Size(418, 588);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnTablaLL1);
             this.Controls.Add(this.btnFirstFollow);
             this.Controls.Add(this.btnAnalizadorLexico);
@@ -198,5 +210,6 @@ namespace ConsoleApp1
         private System.Windows.Forms.Button btnAnalizadorLexico;
         private System.Windows.Forms.Button btnFirstFollow;
         private System.Windows.Forms.Button btnTablaLL1;
+        private System.Windows.Forms.Button button1;
     }
 }

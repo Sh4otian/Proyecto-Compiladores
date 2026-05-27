@@ -7,14 +7,14 @@ using ConsoleApp1.Clases;
 
 namespace ConsoleApp1
 {
-    public partial class FormLR0 : Form
+    public partial class FormFirstFollowLl1 : Form
     {
         private Grammar grammar;
         private Dictionary<string, HashSet<string>> firstSets;
         private Dictionary<string, HashSet<string>> followSets;
         private LL1TableResult ll1Result;
 
-        public FormLR0(int startTabIndex = 0)
+        public FormFirstFollowLl1(int startTabIndex = 0)
         {
             InitializeComponent();
             tabControlResults.SelectedIndex = startTabIndex;
@@ -49,9 +49,9 @@ namespace ConsoleApp1
                 grammar = parser.Parse(txtGrammar.Text);
                 var ff = new FirstFollow();
                 firstSets = ff.ComputeFirst(grammar);
-                followSets = ff.ComputeFollow(grammar,firstSets);
+                followSets = ff.ComputeFollow(grammar, firstSets);
                 var LL1 = new Tablasll1();
-                ll1Result = LL1.BuildLL1Table(grammar,firstSets, followSets,ff);
+                ll1Result = LL1.BuildLL1Table(grammar, firstSets, followSets, ff);
 
                 DisplayFirstFollow();
                 DisplayLL1Table();
@@ -127,9 +127,5 @@ namespace ConsoleApp1
                 : "La tabla LL(1) se generó sin conflictos detectados.";
         }
 
-        private void txtArchivo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

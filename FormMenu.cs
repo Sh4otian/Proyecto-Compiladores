@@ -105,5 +105,11 @@ namespace ConsoleApp1
             FormFirstFollowLl1 f = new FormFirstFollowLl1(1);
             f.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormLR0 f = new FormLR0(0);
+            f.ShowDialog();
+        }
     }
 }

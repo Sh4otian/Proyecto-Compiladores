@@ -7,14 +7,14 @@ using ConsoleApp1.Clases;
 
 namespace ConsoleApp1
 {
-    public partial class FormFirstFollowLl1 : Form
+    public partial class FormLR0 : Form
     {
         private Grammar grammar;
         private Dictionary<string, HashSet<string>> firstSets;
         private Dictionary<string, HashSet<string>> followSets;
         private LL1TableResult ll1Result;
 
-        public FormFirstFollowLl1(int startTabIndex = 0)
+        public FormLR0(int startTabIndex = 0)
         {
             InitializeComponent();
             tabControlResults.SelectedIndex = startTabIndex;
@@ -47,16 +47,90 @@ namespace ConsoleApp1
                 var parser = new ConversionGram();
 
                 grammar = parser.Parse(txtGrammar.Text);
+                parser.Validar(grammar);
+                var builder = new LR0Builder();
+                var states = builder.BuildStates(grammar);
+                foreach (var state in states)
+                {
+                    Console.WriteLine(
+                        $"============ I{state.Id} ============");
+
+                    foreach (var item in state.Items)
+                    {
+                        Console.WriteLine(item);
+                    }
+
+                    Console.WriteLine();
+
+                    foreach (var t in state.Transitions)
+                    {
+                        Console.WriteLine(
+                            $"{t.Key} -> I{t.Value}");
+                    }
+
+                    Console.WriteLine();
+                }
+
+                // =====================================
+                // TABLA LR(0)
+                // =====================================
+
+                var table =
+                    builder.BuildParsingTable(
+                        grammar,
+                        states);
+
+                Console.WriteLine(
+                    "\n===== ACTION =====");
+
+                foreach (var action
+                    in table.Action)
+                {
+                    Console.WriteLine(
+                        $"ACTION[{action.Key.Item1}, {action.Key.Item2}] = {action.Value}");
+                }
+
+                Console.WriteLine(
+                    "\n===== GOTO =====");
+
+                foreach (var gt
+                    in table.Goto)
+                {
+                    Console.WriteLine(
+                        $"GOTO[{gt.Key.Item1}, {gt.Key.Item2}] = {gt.Value}");
+                }
+
+                // conflictos
+                if (table.Conflicts.Count > 0)
+                {
+                    Console.WriteLine(
+                        "\n===== CONFLICTOS =====");
+
+                    foreach (var c
+                        in table.Conflicts)
+                    {
+                        Console.WriteLine(c);
+                    }
+                }
+                var Tabla = builder.BuildParsingTable(grammar, states);
+
+                // tabla unificada
+                DisplayLR0UnifiedTable(Tabla, grammar);
+
+                // explicación textual
+                DisplayLR0Explanation(Tabla, grammar);
+                /*
                 var ff = new FirstFollow();
                 firstSets = ff.ComputeFirst(grammar);
-                followSets = ff.ComputeFollow(grammar,firstSets);
+                followSets = ff.ComputeFollow(grammar, firstSets);
                 var LL1 = new Tablasll1();
-                ll1Result = LL1.BuildLL1Table(grammar,firstSets, followSets,ff);
+                ll1Result = LL1.BuildLL1Table(grammar, firstSets, followSets, ff);
 
                 DisplayFirstFollow();
                 DisplayLL1Table();
                 lblStatus.Text = $"Gramática cargada. Símbolo inicial: {grammar.StartSymbol}.";
                 tabControlResults.SelectedIndex = 0;
+                */
             }
             catch (Exception ex)
             {
@@ -66,70 +140,100 @@ namespace ConsoleApp1
 
         private void ResetResults()
         {
-            txtFirst.Clear();
-            txtFollow.Clear();
+            txtAction.Clear();
+            txtGoto.Clear();
             txtTableNotes.Clear();
-            dataGridViewLL1.Columns.Clear();
-            dataGridViewLL1.Rows.Clear();
-            lblStatus.Text = "Archivo cargado. Haz clic en Procesar para calcular First, Follow y la tabla LL(1).";
+            dataGridViewLR0.Columns.Clear();
+            dataGridViewLR0.Rows.Clear();
+            lblStatus.Text = "Archivo cargado. Haz clic en Procesar para calcular Action, Goto y la tabla de LR(0).";
         }
 
-        private void DisplayFirstFollow()
+        private void DisplayLR0UnifiedTable(LR0ParsingTable table, Grammar grammar)
         {
-            txtFirst.Clear();
-            txtFollow.Clear();
+            dataGridViewLR0.Columns.Clear();
+            dataGridViewLR0.Rows.Clear();
 
-            foreach (var nonTerminal in grammar.NonTerminals)
+            var terminals = grammar.Terminals.ToList();
+            var Aumen = grammar.Productions[0].Left;
+            var nonTerminals = grammar.NonTerminals.Where(nt => nt != Aumen).ToList();
+
+            var allSymbols = terminals.Concat(nonTerminals).ToList();
+
+            foreach (var s in allSymbols)
             {
-                var firstSet = firstSets.ContainsKey(nonTerminal) ? firstSets[nonTerminal] : new HashSet<string>();
-                var followSet = followSets.ContainsKey(nonTerminal) ? followSets[nonTerminal] : new HashSet<string>();
-
-                txtFirst.AppendText($"FIRST({nonTerminal}) = {{ {string.Join(", ", firstSet.OrderBy(x => x))} }}{Environment.NewLine}");
-                txtFollow.AppendText($"FOLLOW({nonTerminal}) = {{ {string.Join(", ", followSet.OrderBy(x => x))} }}{Environment.NewLine}");
-            }
-        }
-
-        private void DisplayLL1Table()
-        {
-            dataGridViewLL1.Columns.Clear();
-            dataGridViewLL1.Rows.Clear();
-
-            foreach (var terminal in ll1Result.Terminals)
-            {
-                var column = new DataGridViewTextBoxColumn
-                {
-                    HeaderText = terminal,
-                    Name = terminal,
-                    AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
-                    SortMode = DataGridViewColumnSortMode.NotSortable
-                };
-                dataGridViewLL1.Columns.Add(column);
+                dataGridViewLR0.Columns.Add(s, s);
             }
 
-            foreach (var nonTerminal in ll1Result.NonTerminals)
+            int maxState =
+                Math.Max(
+                    table.Action.Keys.Any() ? table.Action.Keys.Max(k => k.Item1) : 0,
+                    table.Goto.Keys.Any() ? table.Goto.Keys.Max(k => k.Item1) : 0);
+
+            for (int i = 0; i <= maxState; i++)
             {
-                var rowIndex = dataGridViewLL1.Rows.Add();
-                var row = dataGridViewLL1.Rows[rowIndex];
-                row.HeaderCell.Value = nonTerminal;
-                for (int colIndex = 0; colIndex < ll1Result.Terminals.Count; colIndex++)
+                int rowIndex = dataGridViewLR0.Rows.Add();
+                var row = dataGridViewLR0.Rows[rowIndex];
+                row.HeaderCell.Value = $"{i}";
+
+                for (int j = 0; j < allSymbols.Count; j++)
                 {
-                    var terminal = ll1Result.Terminals[colIndex];
-                    if (ll1Result.Table.TryGetValue(nonTerminal, out var rowTable) && rowTable.TryGetValue(terminal, out var production))
+                    var symbol = allSymbols[j];
+
+                    string value = "";
+
+                    // ACTION (terminales)
+                    if (grammar.Terminals.Contains(symbol))
                     {
-                        row.Cells[colIndex].Value = production;
+                        if (table.Action.TryGetValue((i, symbol), out var act))
+                            value = act;
                     }
+                    else // GOTO (no terminales)
+                    {
+                        if (table.Goto.TryGetValue((i, symbol), out var go))
+                            value = $"{go}";
+                    }
+
+                    row.Cells[j].Value = value;
                 }
             }
 
-            dataGridViewLL1.AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders);
-            txtTableNotes.Text = ll1Result.Conflicts.Any()
-                ? string.Join(Environment.NewLine, ll1Result.Conflicts)
-                : "La tabla LL(1) se generó sin conflictos detectados.";
+            dataGridViewLR0.AutoResizeRowHeadersWidth(
+                DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders);
         }
-
-        private void txtArchivo_TextChanged(object sender, EventArgs e)
+        private void DisplayLR0Explanation(LR0ParsingTable table, Grammar grammar)
         {
+            txtAction.Clear();
+            txtGoto.Clear();
 
+            txtAction.AppendText("===== ACTION =====\r\n");
+
+            foreach (var a in table.Action.OrderBy(x => x.Key.Item1))
+            {
+                txtAction.AppendText(
+                    $"[I{a.Key.Item1}, {a.Key.Item2}] = {a.Value}\r\n");
+            }
+
+            txtGoto.AppendText("\n===== GOTO =====\r\n");
+
+            foreach (var g in table.Goto.OrderBy(x => x.Key.Item1))
+            {
+                txtGoto.AppendText(
+                    $"[I{g.Key.Item1}, {g.Key.Item2}] = I{g.Value}\r\n");
+            }
+
+            txtAction.AppendText("\n===== CONFLICTOS =====\r\n");
+
+            if (table.Conflicts.Count == 0)
+            {
+                txtAction.AppendText("No conflicts.\r\n");
+            }
+            else
+            {
+                foreach (var c in table.Conflicts)
+                {
+                    txtAction.AppendText(c + "\r\n");
+                }
+            }
         }
     }
 }

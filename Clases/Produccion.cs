@@ -8,6 +8,7 @@ namespace ConsoleApp1.Clases
 {
     public class Production
     {
+        public int Id { get; set; }
         public string Left { get; set; }
 
         public List<string> Right { get; set; }

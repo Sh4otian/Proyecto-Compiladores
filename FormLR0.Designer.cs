@@ -1,6 +1,6 @@
 namespace ConsoleApp1
 {
-    partial class FormFirstFollowLl1
+    partial class FormLR0
     {
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.Button btnCargarArchivo;
@@ -10,9 +10,9 @@ namespace ConsoleApp1
         private System.Windows.Forms.TabControl tabControlResults;
         private System.Windows.Forms.TabPage tabPageFirstFollow;
         private System.Windows.Forms.TabPage tabPageLL1;
-        private System.Windows.Forms.TextBox txtFirst;
-        private System.Windows.Forms.TextBox txtFollow;
-        private System.Windows.Forms.DataGridView dataGridViewLL1;
+        private System.Windows.Forms.TextBox txtAction;
+        private System.Windows.Forms.TextBox txtGoto;
+        private System.Windows.Forms.DataGridView dataGridViewLR0;
         private System.Windows.Forms.TextBox txtTableNotes;
         private System.Windows.Forms.Label labelArchivo;
         private System.Windows.Forms.Label labelGrammar;
@@ -40,19 +40,19 @@ namespace ConsoleApp1
             this.tabPageFirstFollow = new System.Windows.Forms.TabPage();
             this.labelFollow = new System.Windows.Forms.Label();
             this.labelFirst = new System.Windows.Forms.Label();
-            this.txtFollow = new System.Windows.Forms.TextBox();
-            this.txtFirst = new System.Windows.Forms.TextBox();
+            this.txtGoto = new System.Windows.Forms.TextBox();
+            this.txtAction = new System.Windows.Forms.TextBox();
             this.tabPageLL1 = new System.Windows.Forms.TabPage();
             this.labelNotas = new System.Windows.Forms.Label();
             this.txtTableNotes = new System.Windows.Forms.TextBox();
-            this.dataGridViewLL1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewLR0 = new System.Windows.Forms.DataGridView();
             this.labelArchivo = new System.Windows.Forms.Label();
             this.labelGrammar = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.tabControlResults.SuspendLayout();
             this.tabPageFirstFollow.SuspendLayout();
             this.tabPageLL1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLL1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLR0)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCargarArchivo
@@ -74,7 +74,6 @@ namespace ConsoleApp1
             this.txtArchivo.ReadOnly = true;
             this.txtArchivo.Size = new System.Drawing.Size(622, 20);
             this.txtArchivo.TabIndex = 1;
-            this.txtArchivo.TextChanged += new System.EventHandler(this.txtArchivo_TextChanged);
             // 
             // txtGrammar
             // 
@@ -116,14 +115,14 @@ namespace ConsoleApp1
             // 
             this.tabPageFirstFollow.Controls.Add(this.labelFollow);
             this.tabPageFirstFollow.Controls.Add(this.labelFirst);
-            this.tabPageFirstFollow.Controls.Add(this.txtFollow);
-            this.tabPageFirstFollow.Controls.Add(this.txtFirst);
+            this.tabPageFirstFollow.Controls.Add(this.txtGoto);
+            this.tabPageFirstFollow.Controls.Add(this.txtAction);
             this.tabPageFirstFollow.Location = new System.Drawing.Point(4, 22);
             this.tabPageFirstFollow.Name = "tabPageFirstFollow";
             this.tabPageFirstFollow.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageFirstFollow.Size = new System.Drawing.Size(758, 274);
             this.tabPageFirstFollow.TabIndex = 0;
-            this.tabPageFirstFollow.Text = "Closure-Goto";
+            this.tabPageFirstFollow.Text = "Clousure-Goto";
             this.tabPageFirstFollow.UseVisualStyleBackColor = true;
             // 
             // labelFollow
@@ -131,48 +130,48 @@ namespace ConsoleApp1
             this.labelFollow.AutoSize = true;
             this.labelFollow.Location = new System.Drawing.Point(382, 12);
             this.labelFollow.Name = "labelFollow";
-            this.labelFollow.Size = new System.Drawing.Size(87, 13);
+            this.labelFollow.Size = new System.Drawing.Size(88, 13);
             this.labelFollow.TabIndex = 3;
-            this.labelFollow.Text = "Conjuntos Follow";
+            this.labelFollow.Text = "Conjuntos GOTO";
             // 
             // labelFirst
             // 
             this.labelFirst.AutoSize = true;
             this.labelFirst.Location = new System.Drawing.Point(9, 12);
             this.labelFirst.Name = "labelFirst";
-            this.labelFirst.Size = new System.Drawing.Size(76, 13);
+            this.labelFirst.Size = new System.Drawing.Size(149, 13);
             this.labelFirst.TabIndex = 2;
-            this.labelFirst.Text = "Conjuntos First";
+            this.labelFirst.Text = "Conjuntos Action // Conflictos";
             // 
-            // txtFollow
+            // txtGoto
             // 
-            this.txtFollow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtGoto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFollow.Location = new System.Drawing.Point(385, 28);
-            this.txtFollow.Multiline = true;
-            this.txtFollow.Name = "txtFollow";
-            this.txtFollow.ReadOnly = true;
-            this.txtFollow.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtFollow.Size = new System.Drawing.Size(367, 238);
-            this.txtFollow.TabIndex = 1;
+            this.txtGoto.Location = new System.Drawing.Point(385, 28);
+            this.txtGoto.Multiline = true;
+            this.txtGoto.Name = "txtGoto";
+            this.txtGoto.ReadOnly = true;
+            this.txtGoto.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtGoto.Size = new System.Drawing.Size(367, 238);
+            this.txtGoto.TabIndex = 1;
             // 
-            // txtFirst
+            // txtAction
             // 
-            this.txtFirst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtAction.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtFirst.Location = new System.Drawing.Point(12, 28);
-            this.txtFirst.Multiline = true;
-            this.txtFirst.Name = "txtFirst";
-            this.txtFirst.ReadOnly = true;
-            this.txtFirst.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtFirst.Size = new System.Drawing.Size(367, 238);
-            this.txtFirst.TabIndex = 0;
+            this.txtAction.Location = new System.Drawing.Point(12, 28);
+            this.txtAction.Multiline = true;
+            this.txtAction.Name = "txtAction";
+            this.txtAction.ReadOnly = true;
+            this.txtAction.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtAction.Size = new System.Drawing.Size(367, 238);
+            this.txtAction.TabIndex = 0;
             // 
             // tabPageLL1
             // 
             this.tabPageLL1.Controls.Add(this.labelNotas);
             this.tabPageLL1.Controls.Add(this.txtTableNotes);
-            this.tabPageLL1.Controls.Add(this.dataGridViewLL1);
+            this.tabPageLL1.Controls.Add(this.dataGridViewLR0);
             this.tabPageLL1.Location = new System.Drawing.Point(4, 22);
             this.tabPageLL1.Name = "tabPageLL1";
             this.tabPageLL1.Padding = new System.Windows.Forms.Padding(3);
@@ -202,17 +201,17 @@ namespace ConsoleApp1
             this.txtTableNotes.Size = new System.Drawing.Size(734, 77);
             this.txtTableNotes.TabIndex = 1;
             // 
-            // dataGridViewLL1
+            // dataGridViewLR0
             // 
-            this.dataGridViewLL1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGridViewLR0.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewLL1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewLL1.Location = new System.Drawing.Point(12, 12);
-            this.dataGridViewLL1.Name = "dataGridViewLL1";
-            this.dataGridViewLL1.RowHeadersWidth = 80;
-            this.dataGridViewLL1.Size = new System.Drawing.Size(734, 155);
-            this.dataGridViewLL1.TabIndex = 0;
+            this.dataGridViewLR0.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewLR0.Location = new System.Drawing.Point(12, 12);
+            this.dataGridViewLR0.Name = "dataGridViewLR0";
+            this.dataGridViewLR0.RowHeadersWidth = 80;
+            this.dataGridViewLR0.Size = new System.Drawing.Size(734, 155);
+            this.dataGridViewLR0.TabIndex = 0;
             // 
             // labelArchivo
             // 
@@ -242,7 +241,7 @@ namespace ConsoleApp1
             this.lblStatus.TabIndex = 8;
             this.lblStatus.Text = "Selecciona un archivo para cargar la gramática.";
             // 
-            // FormFirstFollowLl1
+            // FormLR0
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -255,14 +254,14 @@ namespace ConsoleApp1
             this.Controls.Add(this.txtGrammar);
             this.Controls.Add(this.txtArchivo);
             this.Controls.Add(this.btnCargarArchivo);
-            this.Name = "FormFirstFollowLl1";
-            this.Text = "First-Follow y Tabla LL(1)";
+            this.Name = "FormLR0";
+            this.Text = "Action-Goto y Tabla LR(0)";
             this.tabControlResults.ResumeLayout(false);
             this.tabPageFirstFollow.ResumeLayout(false);
             this.tabPageFirstFollow.PerformLayout();
             this.tabPageLL1.ResumeLayout(false);
             this.tabPageLL1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLL1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLR0)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
